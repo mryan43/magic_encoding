@@ -1,0 +1,36 @@
+= Magic encoding
+
+Magic Encoding is a little tool that allows you to quickly 
+add or modify the magic comments that indicate source file 
+encoding for an entire directory structure, please note that 
+this tool only sets the comments, and does not perform any 
+file encoding conversion whatsoever.
+
+If you are looking for a way to convert files to a specific encoding, check out iconv (GNU)
+
+I originally wrote this to get rid of "invalid multibyte char (US-ASCII)" 
+errors when writing strings containing non ascii characters like éöàüèä
+in ruby on rails controllers
+
+== Usage
+
+you can call the tool with default parameters like so
+
+  magic_encoding
+
+this will prepend every ".rb" file in the working directory (recursively) with the following line :
+
+  # -*- encoding : utf-8 -*-
+
+Notes : 
+- if the encoding is already set, the comment remains unchanged
+- the rest of the file remains unchanged
+  
+you can pass options to the tool to specify the desired encoding and the path where you want the tool to run, for example :
+
+  magic_encoding Shift-JIS /path/to/ruby/project
+
+For more information on ruby >= 1.9 encoding features, check out http://blog.grayproductions.net/articles/ruby_19s_three_default_encodings
+
+
+
