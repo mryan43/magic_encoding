@@ -8,13 +8,13 @@ module AddMagicComment
   # 1 : Encoding
   # 2 : Path
   # TODO : check that the encoding specified is a valid encoding
-  def self.process(*options)
+  def self.process(options)
     
     # defaults
-    encoding  = options[1] | "utf-8"
-    directory = options[2] | Dir.pwd
+    encoding  = options[0] || "utf-8"
+    directory = options[1] || Dir.pwd
     
-    prefix = "# -*- encoding : #{encoding} -*-"
+    prefix = "# -*- encoding : #{encoding} -*-\n"
     
     # TODO : add options for recursivity (and application of the script to a single file)
     rbfiles = File.join(directory ,"**", "*.rb")
@@ -23,11 +23,11 @@ module AddMagicComment
       
       lines = file.readlines
       
-      i = 0
       # remove current encoding comment(s)
-      while lines[i].starts_with? "# encoding" | 
-            lines[i].starts_with? "# coding" |
-            lines[i].starts_with? "# -*- encoding" |
+      while lines[0] && (
+            lines[0].starts_with?("# encoding") || 
+            lines[0].starts_with?("# coding") ||
+            lines[0].starts_with?("# -*- encoding"))
         lines.shift
       end
 
@@ -35,7 +35,7 @@ module AddMagicComment
       lines.insert(0,prefix)
       
       file.pos = 0
-      file.puts(lines.join("\n")) 
+      file.puts(lines.join) 
       file.close
     end
     p "Magic comments set for #{Dir.glob(rbfiles).count} source files"
@@ -50,3 +50,7 @@ class String
   end
 
 end
+
+
+
+
