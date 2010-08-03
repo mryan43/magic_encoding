@@ -23,7 +23,7 @@ this will prepend every ".rb" file in the working directory (recursively) with t
   # -*- encoding : utf-8 -*-
 
 Notes : 
-- if the encoding is already set, the comment remains unchanged
+- existing magic comments are replaced
 - the rest of the file remains unchanged
   
 you can pass options to the tool to specify the desired encoding and the path where you want the tool to run, for example :
