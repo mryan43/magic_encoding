@@ -1,12 +1,7 @@
 #!/usr/bin/env ruby
 
+# A simple tool to prepend magic comments for encoding to multiple ".rb" files
+
 require 'magic_encoding'
 
-case ARGV.count
-when 0
-  AddMagicComment.process
-when 1
-  AddMagicComment.process(ARGV[0])
-when 2
-  AddMagicComment.process(ARGV[0], ARGV[1])
-end
+AddMagicComment.process(ARGV)

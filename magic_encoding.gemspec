@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.default_executable = %q{magic_encoding}
   s.email = ["ryan@shamu.ch"]
   s.executables = ["magic_encoding"]
-  s.files = Dir.glob("{bin,lib}/**/*") + %w(README.rdoc CHANGELOG)
+  s.files = Dir.glob("{bin,lib}/**/*") + %w(README.rdoc CHANGELOG LICENCE)
   s.homepage = %q{http://github.com/m-ryan/magic_encoding}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
