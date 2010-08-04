@@ -12,9 +12,13 @@ I originally wrote this to get rid of "invalid multibyte char (US-ASCII)"
 errors when writing strings containing non ascii characters like éöàüèä
 in ruby on rails controllers
 
+== Installation
+
+  gem install magic_encoding
+  
 == Usage
 
-you can call the tool with default parameters like so
+you can call the tool from the console with default parameters like so
 
   magic_encoding
 
