@@ -21,6 +21,7 @@ module AddMagicComment
 
 		extensions = {
 			'rb' => '# {text}',
+			'rake' => '# {text}',
 			'haml' => '-# {text}',
 		}
 
