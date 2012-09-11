@@ -34,12 +34,9 @@ module AddMagicComment
 				lines = file.readlines
 
 				# remove current encoding comment(s)
-				while lines[0] && (
-							lines[0].starts_with?(comment_style.sub('{text}', 'encoding')) ||
-							lines[0].starts_with?(comment_style.sub('{text}', 'coding')) ||
-							lines[0].starts_with?(comment_style.sub('{text}', '-*- encoding')))
-					lines.shift
-				end
+        while lines[0].match(/^-?# ?(-\*-)? ?(en)?coding/)
+          lines.shift
+        end
 
 				# set current encoding
 				lines.insert(0,comment_style.sub('{text}', prefix))
