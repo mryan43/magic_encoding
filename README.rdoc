@@ -34,7 +34,7 @@ you can pass options to the tool to specify the desired encoding and the path wh
 
   magic_encoding Shift-JIS /path/to/ruby/project
 
-For more information on ruby >= 1.9 encoding features, check out http://blog.grayproductions.net/articles/ruby_19s_three_default_encodings
+For more information on ruby >= 1.9 encoding features, check out http://graysoftinc.com/character-encodings/ruby-19s-three-default-encodings
 
 
 
